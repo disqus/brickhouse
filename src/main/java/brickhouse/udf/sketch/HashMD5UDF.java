@@ -7,6 +7,8 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
+import brickhouse.lib.SafeHash;
+
 /**
  *  Calculate the MD5 hash for a String.
  *   
@@ -18,10 +20,10 @@ import com.google.common.hash.Hashing;
 value = "_FUNC_(x) - Hash MD5. "
 )
 public class HashMD5UDF extends UDF {
-	private HashFunction hash = Hashing.md5();
-
+	private SafeHash hash = new SafeHash();
 
 	public Long evaluate( String str) {
+		
 		HashCode hc = hash.hashString(str);
 
 		return hc.asLong();
