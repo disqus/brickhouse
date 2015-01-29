@@ -8,8 +8,6 @@ public class SafeHash {
 	public SafeHash() {
 	}
 
-	boolean hashMethodExists = false;
-
 	private HashFunction hash = Hashing.md5();
 
 	public HashCode hashString( String str) {
