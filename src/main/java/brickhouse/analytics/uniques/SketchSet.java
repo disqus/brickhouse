@@ -31,13 +31,15 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
+import brickhouse.lib.SafeHash;
+
 public class SketchSet implements ICountDistinct {
 	static final int SIZEOF_LONG = 64;
 	
     public  static int DEFAULT_MAX_ITEMS = 5000;
     private  int maxItems = DEFAULT_MAX_ITEMS;
 	private TreeMap<Long,String> sortedMap;
-	private static HashFunction HASH = Hashing.md5();
+	private static SafeHash HASH = new SafeHash();
 	
     
     public SketchSet() {
